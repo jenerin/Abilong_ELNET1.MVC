@@ -1,0 +1,28 @@
+﻿@model Abilong_ELENET1.MVC.Models.Student
+
+<div class="container col-md-5 card p-4 shadow-sm">
+    <h4 class="text-center">Register Student</h4>
+    <hr />
+    <form asp-action="Create">
+        <div class="mb-3">
+            <label>Student ID</label>
+            <input asp-for="StudentId" class="form-control" placeholder="" required />
+        </div>
+        <div class="mb-3">
+            <label>Full Name</label>
+            <input asp-for="Name" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label>Course</label>
+            <input asp-for="Course" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label>Age</label>
+            <input asp-for="Age" type="number" class="form-control" required />
+        </div>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-success">Save Information</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Abilong_ELENET1.MVC.Models.Student>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Student List</h2>
+        <a asp-action="Create" class="btn btn-primary">+ Add New</a>
+    </div>
+
+    <table class="table table-striped border">
+        <thead class="table-primary">
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Age</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.StudentId</td>
+                    <td>@item.Name</td>
+                    <td>@item.Course</td>
+                    <td>@item.Age</td>
+                    <td>
+                        @*  *@
+                        @if (item.Age >= 18)
+                        {
+                            <span class="badge bg-success">Adult</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">Minor</span>
+                        }
+                    </td>
+                    <td>
+                        <form asp-action="Delete" asp-route-id="@item.Id" method="post" onsubmit="return confirm('Are sure?')">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
